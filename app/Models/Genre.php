@@ -11,6 +11,6 @@ class Genre extends Model
     protected $guarded = [];
 
         public function book() {
-        return $this->hseOne(Book::class);
+        return $this->hasOne(Book::class);
     }
 }
