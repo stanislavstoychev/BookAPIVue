@@ -311,7 +311,7 @@
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
+            <span>copyright &copy; 2022 - developed by
               <b><a href="#" target="_blank">SS</a></b>
             </span>
           </div>
@@ -333,8 +333,7 @@
   <script src="{{ asset('backend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('backend/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
   <script src="{{ asset('backend/js/ruang-admin.min.js') }}"></script>
-  <script src="{{ asset('backend/vendor/chart.js/Chart.min.js') }}"></script>
-  <script src="{{ asset('backend/js/demo/chart-area-demo.js') }}"></script>  
+    
 </body>
 
 </html>
