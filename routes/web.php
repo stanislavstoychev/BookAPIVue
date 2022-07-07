@@ -18,3 +18,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//For vue
+Route::get('/{vue_capture?}',function () {
+    return view('home');
+})->where('vue_capture', '[\/\w\.-]*');

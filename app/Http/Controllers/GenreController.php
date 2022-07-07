@@ -14,7 +14,8 @@ class GenreController extends Controller
      */
     public function index()
     {
-        return 'It works';
+        $genres = Genre::get();
+        return response()->json($genres);
     }
 
     /**

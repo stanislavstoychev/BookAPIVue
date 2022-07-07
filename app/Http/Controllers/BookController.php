@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BookController extends Controller
-{
+{   
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +15,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        return response(Book::with('genre')->get()->jsonSerialize(), Response::HTTP_OK);
+        $books = Book::with('genre')->get();
+        return response()->json($books);
     }
 
     /**
@@ -43,7 +44,7 @@ class BookController extends Controller
         $book->genre_id = $request->genre_id;
         $book->save();
 
-        return response($task->jsonSerialize(), Response::HTTP_CREATED)
+        return response($task->jsonSerialize(), Response::HTTP_CREATED);
 
 
     }
