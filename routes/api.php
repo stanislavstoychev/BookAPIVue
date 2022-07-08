@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('/book', 'BookController')->except(['edit']);
-Route::apiResource('/genre', 'BookController')->except(['edit']);
+Route::apiResource('/genre', 'GenreController')->except(['edit']);

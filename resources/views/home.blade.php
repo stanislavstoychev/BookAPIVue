@@ -9,8 +9,9 @@
   <meta name="author" content="">
   <link href="{{ asset('backend/img/logo/logo.png') }}" rel="icon">
   <title>Система за отдаване на книгите под наем</title>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
-  <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+  <!-- <link href="{{ asset('backend/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css"> -->
   <link href="{{ asset('backend/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
   <link href="{{ asset('backend/css/ruang-admin.min.css')}}" rel="stylesheet">
 </head>
@@ -44,9 +45,8 @@
         </a>
         <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Bootstrap UI</h6>
-            <router-link class="collapse-item" to="store-book">Add book</router-link>
-            <router-link class="collapse-item" to="book">All books</router-link>
+            <router-link class="collapse-item" to="store-book">Добави книга</router-link>
+            <router-link class="collapse-item" to="book">Списък с книгите</router-link>
           </div>
         </div>
       </li>

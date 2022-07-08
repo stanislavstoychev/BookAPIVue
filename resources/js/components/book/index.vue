@@ -3,24 +3,27 @@
     <div>
 
         <div class="row">
-            <router-link to="/store-book" class="btn btn-primary">Add Book </router-link>
-
+            <router-link to="/store-book" class="mt-4 btn btn-primary">Нова книга</router-link>
         </div>
         <br>
-        <div class="col-md-6">
-            <input type="text" v-model="searchTerm" class="form-control" style="width: 300px;" placeholder="Search Here">
-        </div>
 
-        <div class="col-md-6">
-                                                    <!-- <label for="exampleFormControlSelect1">Genre</label>
-                                                    <select class="form-control custom-select" id="exampleFormControlSelect1"
-                                                        v-model="genre_id" @change="filtersearch">
-                                                        <option v-for="genre in genres" :value="genre.id">
-                                                            {{genre.name}}</option>
+        <div class="form-group">
+            <div class="form-row">
 
-                                                    </select> -->
+                <div class="col-md-6">
+                    <label for="exampleFormControlSelect1">Търсене по заглавие</label>
+                    <input type="text" v-model="searchTerm" class="form-control" placeholder="">
+                </div>
 
-                                                    
+                <div class="col-md-6">
+                    <label for="exampleFormControlSelect1">Жанр</label>
+                    <select class="form-select" v-model="genre_id" @change="filtersearch">
+                            <option value="0" selected> ---</option>
+                            <option v-for="genre in genres" :value="genre.id">{{genre.name}}</option>
+                    </select>
+                </div>
+
+            </div>
         </div>
         <br>
 
@@ -28,18 +31,18 @@
             <div class="col-lg-12 mb-4">
                 <!-- Simple Tables -->
                 <div class="card">
-                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary">Book List</h6>
+                    <div class="card-header py-3 m-4 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-2 font-weight-bold text-primary">Списък с книгите</h6>
                     </div>
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
-                                    <th>Code</th>
-                                    <th>Title</th>
-                                    <th>Author</th>
-                                    <th>Genre</th>
-                                    <th>Action</th>
+                                    <th>Код</th>
+                                    <th>Заглавие</th>
+                                    <th>Автор</th>
+                                    <th>Жанр</th>
+                                    <th>Действие</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,11 +52,15 @@
                                     <td>{{ book.author }}</td>
                                     <td>{{ book.genre.name }}</td>
                                     <td>
-                                        <router-link :to="{name: 'edit-book', params:{id:book.id}}"
-                                            class="btn btn-sm btn-primary">Edit</router-link>
+                                        <router-link :to="{name: 'editbook', params:{id:book.id}}"
+                                            class="btn btn-sm btn-primary">
+                                            <i class="far fa-edit"></i>
+                                        </router-link>
 
                                         <a @click="deleteBook(book.id)" class="btn btn-sm btn-danger">
-                                            <font color="#ffffff">Delete</font>
+                                            <font color="#ffffff">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </font>
                                         </a>
                                     </td>
                                 </tr>
@@ -90,14 +97,21 @@ export default {
         return {
             books: [],
             searchTerm: '',
-            genres: [], 
+            genres: [],
+            genre_id: 0, 
 
         }
     },
     computed: {
         filtersearch() {
             return this.books.filter(book => {
-                return book.title.toUpperCase().includes(this.searchTerm.toUpperCase())
+                if(this.genre_id == 0) {
+                return book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1
+                } else {
+                    return book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1 &&
+                        book.genre_id == this.genre_id   
+                }
+    
             })
         }
     },

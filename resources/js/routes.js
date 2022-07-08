@@ -12,6 +12,6 @@ let editbook = require('./components/book/edit.vue').default;
 export const routes = [
     { path: '/book', component: book, name: 'book' },
     { path: '/store-book', component: storebook, name: 'storebook' },
-    { path: '/edit-book', component: editbook, name: 'editbook' },
+    { path: '/edit-book/:id', component: editbook, name: 'editbook' },
 
   ]

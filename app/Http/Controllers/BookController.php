@@ -37,6 +37,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
+        $validateData = $request->validate([
+            'genre_id' => 'required',
+            'code' => 'required',
+            'title' => 'required',
+            'author' => 'required',
+           ]);
+
         $book = new Book();
         $book->code = $request->code;
         $book->title = $request->title;
@@ -44,7 +51,7 @@ class BookController extends Controller
         $book->genre_id = $request->genre_id;
         $book->save();
 
-        return response($task->jsonSerialize(), Response::HTTP_CREATED);
+        return response()->json($book, 201);
 
 
     }
@@ -55,9 +62,10 @@ class BookController extends Controller
      * @param  \App\Models\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function show(book $book)
+    public function show($id)
     {
-        //
+        $book = Book::with('genre')->findOrFail($id);
+        return response()->json($book);
     }
 
     /**
@@ -78,9 +86,23 @@ class BookController extends Controller
      * @param  \App\Models\book  $book
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, book $book)
+    public function update(Request $request, $id)
     {
-        //
+        $validateData = $request->validate([
+            'genre_id' => 'required',
+            'code' => 'required',
+            'title' => 'required',
+            'author' => 'required',
+           ]);
+
+        $data = array();
+        $data['code'] =  $request->code;
+        $data['author'] =  $request->author;
+        $data['title'] =  $request->title;
+        $data['genre_id'] =  $request->genre_id;
+        $book = Book::where('id',$id)->update($data);
+
+        return response()->json($book, 200);
     }
 
     /**
