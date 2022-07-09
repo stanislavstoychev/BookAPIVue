@@ -12,7 +12,7 @@
                             <div class="col-lg-12">
                                 <div class="login-form">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Нова книга</h1>
+                                        <h1 class="h4 text-gray-900 mt-4">Нова книга</h1>
                                     </div>
                                     <form class="user" @submit.prevent="bookInsert" enctype="multipart/form-data">
                                         <div class="form-group">

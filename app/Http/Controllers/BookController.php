@@ -15,7 +15,7 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::with('genre')->get();
+        $books = Book::with('genre')->orderBy('title')->get();
         return response()->json($books);
     }
 
@@ -52,8 +52,6 @@ class BookController extends Controller
         $book->save();
 
         return response()->json($book, 201);
-
-
     }
 
     /**

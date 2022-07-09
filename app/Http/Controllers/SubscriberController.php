@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\subscriber;
+use App\Models\Subscriber;
 use Illuminate\Http\Request;
 
 class SubscriberController extends Controller
@@ -12,9 +12,15 @@ class SubscriberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function rentedbooks()
+    {
+        $rented = Subscriber::orderBy('name')->with('rents.book')->get();
+        return response()->json($rented, 200);
+    }
     public function index()
     {
-        //
+        $subscriber = Subscriber::orderBy('name')->get();
+        return response()->json($subscriber, 200);
     }
 
     /**

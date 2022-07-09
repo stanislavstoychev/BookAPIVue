@@ -17,7 +17,7 @@ class CreateRentsTable extends Migration
             $table->id();
             $table->integer('subscriber_id')->unsigned();
             $table->integer('book_id')->unsigned();
-            $table->string('return_date');
+            $table->string('return_date')->nullable();
             $table->string('get_date');
             $table->timestamps();
         });
