@@ -6279,6 +6279,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+// vue pagination https://youtu.be/cuirNvBx8U8 
+var customStyles = {
+  ul: {
+    border: '2px solid red'
+  },
+  li: {
+    display: 'inline-block',
+    border: '2px dotted green'
+  },
+  a: {
+    color: 'blue'
+  }
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {},
   created: function created() {
@@ -6291,11 +6306,12 @@ __webpack_require__.r(__webpack_exports__);
       searchTerm: '',
       subscribers: [],
       genre_id: 0,
-      subscriber_id: 0
+      subscriber_id: 0,
+      pageOfItems: []
     };
   },
   computed: {
-    filtersearch: function filtersearch() {
+    filterSearch: function filterSearch() {
       var _this = this;
 
       return this.rents.filter(function (rent) {
@@ -6308,6 +6324,12 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    // for pagination
+    onChangePage: function onChangePage(pageOfItems) {
+      console.log(pageOfItems); // update page of items
+
+      this.pageOfItems = pageOfItems;
+    },
     allRents: function allRents() {
       var _this2 = this;
 
@@ -38467,73 +38489,84 @@ var render = function () {
         _c("div", { staticClass: "card" }, [
           _vm._m(0),
           _vm._v(" "),
-          _c("div", { staticClass: "table-responsive" }, [
-            _c(
-              "table",
-              { staticClass: "table align-items-center table-flush" },
-              [
-                _vm._m(1),
-                _vm._v(" "),
-                _c(
-                  "tbody",
-                  _vm._l(_vm.filtersearch, function (rent) {
-                    return _c("tr", { key: rent.id }, [
-                      _c("td", [_vm._v(" " + _vm._s(rent.book.code) + " ")]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(rent.book.title))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(rent.book.author))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(rent.book.genre.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(rent.subscriber.name))]),
-                      _vm._v(" "),
-                      _c("td", [_vm._v(_vm._s(rent.get_date))]),
-                      _vm._v(" "),
-                      _c(
-                        "td",
-                        [
-                          _c(
-                            "router-link",
-                            {
-                              staticClass: "btn btn-sm btn-primary",
-                              attrs: {
-                                to: {
-                                  name: "editrent",
-                                  params: { id: rent.id },
+          _c(
+            "div",
+            { staticClass: "table-responsive" },
+            [
+              _c(
+                "table",
+                { staticClass: "table align-items-center table-flush" },
+                [
+                  _vm._m(1),
+                  _vm._v(" "),
+                  _c(
+                    "tbody",
+                    _vm._l(_vm.pageOfItems, function (rent) {
+                      return _c("tr", { key: rent.id }, [
+                        _c("td", [_vm._v(" " + _vm._s(rent.book.code) + " ")]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(rent.book.title))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(rent.book.author))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(rent.book.genre.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(rent.subscriber.name))]),
+                        _vm._v(" "),
+                        _c("td", [_vm._v(_vm._s(rent.get_date))]),
+                        _vm._v(" "),
+                        _c(
+                          "td",
+                          [
+                            _c(
+                              "router-link",
+                              {
+                                staticClass: "btn btn-sm btn-primary",
+                                attrs: {
+                                  to: {
+                                    name: "editrent",
+                                    params: { id: rent.id },
+                                  },
                                 },
                               },
-                            },
-                            [_c("i", { staticClass: "far fa-edit" })]
-                          ),
-                          _vm._v(" "),
-                          _c(
-                            "a",
-                            {
-                              staticClass: "btn btn-sm btn-danger",
-                              on: {
-                                click: function ($event) {
-                                  return _vm.deleteRent(rent.id)
+                              [_c("i", { staticClass: "far fa-edit" })]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "a",
+                              {
+                                staticClass: "btn btn-sm btn-danger",
+                                on: {
+                                  click: function ($event) {
+                                    return _vm.deleteRent(rent.id)
+                                  },
                                 },
                               },
-                            },
-                            [
-                              _c("font", { attrs: { color: "#ffffff" } }, [
-                                _c("i", { staticClass: "fas fa-trash-alt" }),
-                              ]),
-                            ],
-                            1
-                          ),
-                        ],
-                        1
-                      ),
-                    ])
-                  }),
-                  0
-                ),
-              ]
-            ),
-          ]),
+                              [
+                                _c("font", { attrs: { color: "#ffffff" } }, [
+                                  _c("i", { staticClass: "fas fa-trash-alt" }),
+                                ]),
+                              ],
+                              1
+                            ),
+                          ],
+                          1
+                        ),
+                      ])
+                    }),
+                    0
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c("jw-pagination", {
+                staticClass: "m-5",
+                attrs: { pageSize: 6, items: _vm.filterSearch },
+                on: { changePage: _vm.onChangePage },
+              }),
+            ],
+            1
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "card-footer" }),
         ]),
@@ -38550,7 +38583,7 @@ var staticRenderFns = [
       "div",
       {
         staticClass:
-          "card-header py-3 m-4 d-flex flex-row align-items-center justify-content-between",
+          "card-header py-1 m-4 d-flex flex-row align-items-center justify-content-between",
       },
       [
         _c("h6", { staticClass: "m-2 font-weight-bold text-primary" }, [

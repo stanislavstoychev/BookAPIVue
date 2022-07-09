@@ -31,7 +31,7 @@
             <div class="col-lg-12 mb-4">
                 <!-- Simple Tables -->
                 <div class="card">
-                    <div class="card-header py-3 m-4 d-flex flex-row align-items-center justify-content-between">
+                    <div class="card-header py-1 m-4 d-flex flex-row align-items-center justify-content-between">
                         <h6 class="m-2 font-weight-bold text-primary">Списък наетите книги</h6>
                     </div>
                     <div class="table-responsive">
@@ -48,7 +48,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr v-for="rent in filtersearch" :key="rent.id">
+                                <tr v-for="rent in pageOfItems" :key="rent.id">
                                     <td> {{ rent.book.code }} </td>
                                     <td>{{ rent.book.title }}</td>
                                     <td>{{ rent.book.author }}</td>
@@ -71,6 +71,8 @@
 
                             </tbody>
                         </table>
+                <!-- vue pagination https://youtu.be/cuirNvBx8U8 -->
+                <jw-pagination :pageSize=6 :items="filterSearch" @changePage="onChangePage" class="m-5"></jw-pagination>
                     </div>
                     <div class="card-footer"></div>
                 </div>
@@ -88,6 +90,20 @@
 
 
 <script type="text/javascript">
+    
+    // vue pagination https://youtu.be/cuirNvBx8U8 
+const customStyles = {
+    ul: {
+        border: '2px solid red'
+    },
+    li: {
+        display: 'inline-block',
+        border: '2px dotted green'
+    },
+    a: {
+        color: 'blue'
+    }
+};
 export default {
     mounted() {
         
@@ -104,11 +120,12 @@ export default {
             subscribers: [],
             genre_id: 0,
             subscriber_id: 0,
+            pageOfItems: [],
 
         }
     },
     computed: {
-        filtersearch() {
+        filterSearch() {
             return this.rents.filter(rent => {
                 if(this.subscriber_id == 0) {
                 return rent.book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1
@@ -122,6 +139,12 @@ export default {
     },
 
     methods: {
+        // for pagination
+        onChangePage(pageOfItems) {
+            console.log(pageOfItems)
+            // update page of items
+            this.pageOfItems = pageOfItems;
+        },
         allRents() {
             axios.get('/api/rentedbooks')
                 .then(({

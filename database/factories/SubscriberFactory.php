@@ -12,7 +12,7 @@ class SubscriberFactory extends Factory
      *
      * @return array
      */
-   protected $model = Subscriber::class;
+   
     public function definition()
     {
         return [
