@@ -5,6 +5,9 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 //inputs file for routes
 import { routes } from './routes';
+// register jw pagination component globally
+import JwPagination from 'jw-vue-pagination';
+Vue.component('jw-pagination', JwPagination);
 // Notification 
 import Notification from './Helpers/Notification';
 window.Notification = Notification
