@@ -108,8 +108,8 @@ export default {
                 if(this.genre_id == 0) {
                 return book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1
                 } else {
-                    return book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1 &&
-                        book.genre_id == this.genre_id   
+                    return (book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1) &&
+                        (book.genre_id == this.genre_id)   
                 }
     
             })

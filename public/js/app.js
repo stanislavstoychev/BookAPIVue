@@ -6311,14 +6311,14 @@ var customStyles = {
     };
   },
   computed: {
-    filterSearch: function filterSearch() {
+    filtersearch: function filtersearch() {
       var _this = this;
 
       return this.rents.filter(function (rent) {
         if (_this.subscriber_id == 0) {
           return rent.book.title.toUpperCase().indexOf(_this.searchTerm.toUpperCase()) > -1;
         } else {
-          return rent.book.title.toUpperCase().indexOf(_this.searchTerm.toUpperCase()) > -1 && rent.subscriber.id == _this.subscriber_id;
+          return rent.book.title.toUpperCase().indexOf(_this.searchTerm.toUpperCase()) > -1 && rent.subscriber_id == _this.subscriber_id;
         }
       });
     }
@@ -38561,7 +38561,7 @@ var render = function () {
               _vm._v(" "),
               _c("jw-pagination", {
                 staticClass: "m-5",
-                attrs: { pageSize: 6, items: _vm.filterSearch },
+                attrs: { pageSize: 6, items: _vm.filtersearch },
                 on: { changePage: _vm.onChangePage },
               }),
             ],

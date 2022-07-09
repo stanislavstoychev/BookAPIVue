@@ -72,7 +72,7 @@
                             </tbody>
                         </table>
                 <!-- vue pagination https://youtu.be/cuirNvBx8U8 -->
-                <jw-pagination :pageSize=6 :items="filterSearch" @changePage="onChangePage" class="m-5"></jw-pagination>
+                <jw-pagination :pageSize=6 :items="filtersearch" @changePage="onChangePage" class="m-5"></jw-pagination>
                     </div>
                     <div class="card-footer"></div>
                 </div>
@@ -125,14 +125,15 @@ export default {
         }
     },
     computed: {
-        filterSearch() {
+        filtersearch() {
             return this.rents.filter(rent => {
-                if(this.subscriber_id == 0) {
-                return rent.book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1
+                if (this.subscriber_id == 0) {
+                    return rent.book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1
                 } else {
-                    return rent.book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1 &&
-                        rent.subscriber.id == this.subscriber_id   
+                    return (rent.book.title.toUpperCase().indexOf(this.searchTerm.toUpperCase()) > -1) &&
+                        (rent.subscriber_id == this.subscriber_id) 
                 }
+                  
     
             })
         }
