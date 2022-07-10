@@ -17,7 +17,7 @@
 
                 <div class="col-md-6">
                     <label for="subscriber">Наемател</label>
-                    <select class="form-select" v-model="subscriber_id" @change="filtersearch">
+                    <select class="form-select" v-model="subscriber_id" >
                             <option value="0" selected> ---</option>
                             <option v-for="subscriber in subscribers" :value="subscriber.id">{{subscriber.name}}</option>
                     </select>

@@ -17,7 +17,7 @@
 
                 <div class="col-md-6">
                     <label for="exampleFormControlSelect1">Жанр</label>
-                    <select class="form-select" v-model="genre_id" @change="filtersearch">
+                    <select class="form-select" v-model="genre_id">
                             <option value="0" selected> ---</option>
                             <option v-for="genre in genres" :value="genre.id">{{genre.name}}</option>
                     </select>
