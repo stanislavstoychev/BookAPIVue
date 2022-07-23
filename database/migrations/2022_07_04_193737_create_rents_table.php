@@ -16,10 +16,14 @@ class CreateRentsTable extends Migration
         Schema::create('rents', function (Blueprint $table) {
             $table->id();
             $table->integer('subscriber_id')->unsigned();
-            $table->integer('book_id')->unsigned();
+            // $table->integer('book_id')->unsigned();
+            //for cascade deleting, but is not working with  soft delete
+            $table->foreignId('book_id')->constrained()->onDelete('cascade');
             $table->string('return_date')->nullable();
             $table->string('get_date');
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 

@@ -5708,7 +5708,7 @@ __webpack_require__.r(__webpack_exports__);
 
       Swal.fire({
         title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        text: "It will delete book and all rental records for it!",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -5725,7 +5725,7 @@ __webpack_require__.r(__webpack_exports__);
               name: 'book'
             });
           });
-          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+          Swal.fire('Deleted!', 'Book has been deleted.', 'success');
         }
       });
     }
@@ -6534,8 +6534,7 @@ var storerent = (__webpack_require__(/*! ./components/rent/create.vue */ "./reso
 
 var rent = (__webpack_require__(/*! ./components/rent/index.vue */ "./resources/js/components/rent/index.vue")["default"]);
 
-var editrent = (__webpack_require__(/*! ./components/rent/edit.vue */ "./resources/js/components/rent/edit.vue")["default"]); // Empoyee Component
-//Books Component
+var editrent = (__webpack_require__(/*! ./components/rent/edit.vue */ "./resources/js/components/rent/edit.vue")["default"]); //Books Component
 
 
 var routes = [{

@@ -6,10 +6,11 @@ use App\Models\Genre;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Book extends Model
 {
-	use HasFactory;
+	use HasFactory, SoftDeletes;
     protected $guarded = [];
 
     public function genre() {

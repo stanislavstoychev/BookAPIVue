@@ -10,7 +10,7 @@ let storerent = require('./components/rent/create.vue').default;
 let rent = require('./components/rent/index.vue').default;
 let editrent = require('./components/rent/edit.vue').default;
 
-// Empoyee Component
+
 
 
  //Books Component

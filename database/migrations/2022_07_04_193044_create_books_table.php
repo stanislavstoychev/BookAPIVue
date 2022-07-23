@@ -20,6 +20,8 @@ class CreateBooksTable extends Migration
             $table->string('author');
             $table->integer('genre_id')->unsigned();
             $table->timestamps();
+            $table->softDeletes();
+
         });
     }
 
