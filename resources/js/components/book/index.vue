@@ -3,7 +3,7 @@
     <div>
 
         <div class="row">
-            <router-link to="/store-book" class="mt-4 btn btn-primary">Нова книга</router-link>
+            <router-link to="/store-book" class="mt-4 btn btn-primary m-1">Нова книга</router-link>
         </div>
         <br>
 

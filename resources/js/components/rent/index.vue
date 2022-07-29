@@ -3,7 +3,7 @@
     <div>
 
         <div class="row">
-            <router-link to="/store-rent" class="mt-4 btn btn-primary">Наемане на книга</router-link>
+            <router-link to="/store-rent" class="mt-4 btn btn-primary m-1">Наемане на книга</router-link>
         </div>
         <br>
 
@@ -142,7 +142,6 @@ export default {
     methods: {
         // for pagination
         onChangePage(pageOfItems) {
-            console.log(pageOfItems)
             // update page of items
             this.pageOfItems = pageOfItems;
         },

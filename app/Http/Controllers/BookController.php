@@ -113,10 +113,11 @@ class BookController extends Controller
     {
         // Book::destroy($id);
         $book = Book::find($id);
-        // if not set cascade in database or we work with soft delete
-        //soft delete - get only deleted
-        // Book::onlyTrashed()->get();
-        //$book->rents()->restore()
+            // if not set cascade in database or we working with soft delete
+            // get only soft deleted items
+            // Book::onlyTrashed()->get();
+            //$book->rents()->restore()
+            // ->forceDelete(); - permanently delete
         $book->rents()->delete(); 
         $book->delete();
         return response(null, Response::HTTP_OK);

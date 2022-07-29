@@ -6326,8 +6326,7 @@ var customStyles = {
   methods: {
     // for pagination
     onChangePage: function onChangePage(pageOfItems) {
-      console.log(pageOfItems); // update page of items
-
+      // update page of items
       this.pageOfItems = pageOfItems;
     },
     allRents: function allRents() {
@@ -36620,7 +36619,7 @@ var render = function () {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "row" },
+      { staticClass: "row m-1" },
       [
         _c(
           "router-link",
@@ -36636,7 +36635,7 @@ var render = function () {
         _c("div", { staticClass: "card shadow-sm my-5" }, [
           _c("div", { staticClass: "card-body p-0" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 p-4" }, [
                 _c("div", { staticClass: "login-form" }, [
                   _vm._m(0),
                   _vm._v(" "),
@@ -36926,7 +36925,7 @@ var render = function () {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "row" },
+      { staticClass: "row m-1" },
       [
         _c(
           "router-link",
@@ -36942,7 +36941,7 @@ var render = function () {
         _c("div", { staticClass: "card shadow-sm my-5" }, [
           _c("div", { staticClass: "card-body p-0" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 p-4" }, [
                 _c("div", { staticClass: "login-form" }, [
                   _vm._m(0),
                   _vm._v(" "),
@@ -37236,7 +37235,10 @@ var render = function () {
       [
         _c(
           "router-link",
-          { staticClass: "mt-4 btn btn-primary", attrs: { to: "/store-book" } },
+          {
+            staticClass: "mt-4 btn btn-primary m-1",
+            attrs: { to: "/store-book" },
+          },
           [_vm._v("Нова книга")]
         ),
       ],
@@ -37524,7 +37526,7 @@ var render = function () {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "row" },
+      { staticClass: "row m-1" },
       [
         _c(
           "router-link",
@@ -37540,7 +37542,7 @@ var render = function () {
         _c("div", { staticClass: "card shadow-sm my-5" }, [
           _c("div", { staticClass: "card-body p-0" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 p-4" }, [
                 _c("div", { staticClass: "login-form" }, [
                   _vm._m(0),
                   _vm._v(" "),
@@ -37907,7 +37909,7 @@ var render = function () {
   return _c("div", [
     _c(
       "div",
-      { staticClass: "row" },
+      { staticClass: "row m-1" },
       [
         _c(
           "router-link",
@@ -37923,7 +37925,7 @@ var render = function () {
         _c("div", { staticClass: "card shadow-sm my-5" }, [
           _c("div", { staticClass: "card-body p-0" }, [
             _c("div", { staticClass: "row" }, [
-              _c("div", { staticClass: "col-lg-12" }, [
+              _c("div", { staticClass: "col-lg-12 p-4" }, [
                 _c("div", { staticClass: "login-form" }, [
                   _vm._m(0),
                   _vm._v(" "),
@@ -38388,7 +38390,10 @@ var render = function () {
       [
         _c(
           "router-link",
-          { staticClass: "mt-4 btn btn-primary", attrs: { to: "/store-rent" } },
+          {
+            staticClass: "mt-4 btn btn-primary m-1",
+            attrs: { to: "/store-rent" },
+          },
           [_vm._v("Наемане на книга")]
         ),
       ],

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row">
+        <div class="row m-1">
             <router-link to="/book" class="btn btn-primary">Всички книги</router-link>
         </div>
 
@@ -9,7 +9,7 @@
                 <div class="card shadow-sm my-5">
                     <div class="card-body p-0">
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 p-4">
                                 <div class="login-form">
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mt-4">Нова книга</h1>
